@@ -1,0 +1,6 @@
+authors = ["Ricky <Ricky@Hosfe.lt>"]
+description = "LNKR – A URL shortener at the edge"
+language = "rust"
+manifest_version = 3
+name = "LNKR"
+service_id = "9X9SKrnygc0A8nI3Gr0u77"

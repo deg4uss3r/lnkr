@@ -1,0 +1,7 @@
+[package]
+name = "lnkr"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fastly = "0.10"
