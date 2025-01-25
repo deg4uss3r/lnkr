@@ -1,4 +1,31 @@
-<head>/<head>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LNKR</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-        <h1>Coming soon!</h1>
+        <div class="container">
+                <h1>LNKR: Shorten and Share URLs</h1>
+                <form id="test" class="forum-form" action="/process" method="post">
+                        <input type="text" id="URL" name="URL" placeholder="https://example.com" required>
+                        <input type="text" id="CKEY" name="CKEY" placeholder="optional-custom-shorten-text">
+                        <div class="checkbox-container">
+                                <label>
+                                        Use memorable words instead of random characters:
+                                        <input type="checkbox" id="WORDS" name="WORDS" value="on">
+                                        <span class="checkmark"></span>
+                                </label>
+                        </div>
+                        <div class="checkbox-container">
+                                <label>
+                                        Strip trackers and params first:
+                                        <input type="checkbox" id="STRIP" name="STRIP" value="on" checked>
+                                        <span class="checkmark"></span>
+                                </label>
+                        </div>
+                        <button type="submit">Submit</button>
+                </form>
+        </div>
 </body>
