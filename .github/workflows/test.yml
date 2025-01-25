@@ -15,7 +15,7 @@ jobs:
       with:
         toolchain: 1.83.0
     - name: Add wasm32-wasi Rust target
-      run: rustup target add wasm32-wasi --toolchain ${{ matrix.rust-toolchain }}
+      run: rustup target add wasm32-wasi
     - name: Cache cargo registry
       uses: actions/cache@v3
       with:
@@ -24,7 +24,7 @@ jobs:
     - name: Cache cargo index
       uses: actions/cache@v3
       with:
-        path: ~/.cargo/git
+        path: $HOME/.cargo/git
         key: ${{ runner.os }}-cargo-index-${{ hashFiles('**/Cargo.lock') }}
     - name: Cache cargo build
       uses: actions/cache@v3
@@ -50,7 +50,7 @@ jobs:
       run: cargo audit
       shell: bash
     - name: build
-      run: cargo build
+      run: cargo build --target wasm32-wasi
       shell: bash
   deploy:
     if: |
@@ -66,7 +66,7 @@ jobs:
           toolchain: 1.83.0 # current Rust toolchain for Compute
           target: wasm32-wasi # WebAssembly target
     - name: Deploy
-      uses: fastly/compute-actions@v5
+      uses: fastly/compute-actions@v11
       with:
         verbose: true
       env:
